@@ -1,0 +1,49 @@
+<div class="container-fluid justify-content-center w-50 align-items-center">
+  <div class="d-flex flex-row p-5">
+    <input [(ngModel)]="inputTask" type="text" class="rounded p-2 col-11 corner border border-secondary"
+      placeholder="Input your task" required />
+
+    <div class="col-1 d-flex justify-content-center align-items-center" (click)="addTask()">
+      <i class="bi bi-file-plus" style="font-size:24px"></i>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-secondary" (click)="sortByWord()">
+      filter by Word
+    </button>
+  </div>
+
+</div>
+<div class="container-fluid w-75  mt-5 rounded p-5">
+  <div class="d-flex p-1 row rounded" *ngFor="let item of taskList; index as i">
+    <div class="col-1 p-1 text-center" (click)="completeFunc(i)">
+      <div *ngIf="containsIndex(i); else content">
+        <i class="bi bi-check-circle"></i>
+      </div>
+      <ng-template #content>
+        <i class="bi bi-circle"></i>
+      </ng-template>
+    </div>
+    <div class="col-10 rounded p-1 border border-secondary bg-dark " appFeature
+      *ngIf="!containsIndex(i); else crossLine">
+      <div>
+        <span class="w-100 text-white">{{
+          item
+        }}</span>
+      </div>
+    </div>
+
+    <ng-template #crossLine>
+      <div class="col-10 rounded p-1 border border-secondary bg-white">
+        <span class="w-100" style="text-decoration: line-through">{{ item }}</span>
+      </div>
+    </ng-template>
+
+    <div class="col-1 d-flex">
+      <div class="ml-2" (click)="deleteTask(i)">
+        <i class="bi bi-trash" style="font-size: 24px"></i>
+      </div>
+    </div>
+  </div>
+</div>
