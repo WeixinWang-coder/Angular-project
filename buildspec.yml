@@ -6,7 +6,7 @@ phases:
     commands:
       - echo "Installing dependencies..."
       - cd "To-do-List"
-      - npm install
+      - npm install --save --legacy-peer-deps
       - npm install -g @angular/cli
       - npm install --save bootstrap
       - npm audit fix --force
