@@ -8,8 +8,8 @@ phases:
       - cd "To-do-List"
       - npm install --save --legacy-peer-deps
       - npm install -g @angular/cli
-      - npm audit fix --force
       - npm install --save bootstrap
+      - npm audit fix --force
       - Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
   build:
     commands:
