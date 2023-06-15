@@ -11,8 +11,8 @@ phases:
   build:
     commands:
       - echo "Build a to-do list project..."
-      - ng build --prod
+      - ng build --configuration production
   post_build:
     commands:
       - echo "updating files in the S3 bucket..."
-      - aws s3 sync dist/Angular-project/ s3://angular-todolist-06152023 --delete
+      - aws s3 sync dist/to-do-list/ s3://angular-todolist-06152023 --delete
