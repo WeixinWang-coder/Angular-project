@@ -9,7 +9,6 @@ phases:
       - npm install --save --legacy-peer-deps
       - npm install -g @angular/cli
       - npm install --save bootstrap --legacy-peer-deps
-      - npm audit fix --force
       - Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
   build:
     commands:
